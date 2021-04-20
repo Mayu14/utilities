@@ -52,13 +52,14 @@ def get_latex_source(setting, captions):
         \\pdffontexpand\\f 30 20 10 autoexpand
         \\pdfadjustspacing=2
         \\usepackage{{graphicx}}
-        \\graphicspath{{{{../src/}}}}
-        \\captionsetup{{compatibility=false}}
+        \\graphicspath{{{{src/}}}}
         \\title{{{title}}}
         \\author{{{author}}}
         """[:-1]
 
     def get_figure_core(fig_name, caption, width):
+        if caption is None:
+            caption = ''
         return f"""
             \\begin{{figure}}
             \\begin{{center}}
